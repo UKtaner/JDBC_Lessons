@@ -1,5 +1,11 @@
 package summer21jdbc;
-
+/*
+By the help of JDBC (Java Database Connectivity),
+Making a connection to a database.
+Creating SQL  statements.
+Executing SQL queries in the database.
+Viewing & Modifying the resulting records.	
+ */
 
 //1.Step:Having phone means "importing SQL Package"
 import java.sql.*;
@@ -20,9 +26,9 @@ public class JdbcExecuteQuery01 {
 		//5.Step:Start to talk with your friend means "Create SQL Query and execute it"
 		
 		//1. Example:
-		String q1 = "SELECT * FROM my_companies";//my query
-		ResultSet r1 = st.executeQuery(q1);//sending(execute) my q1 to database than will get the Resultset, it will be unique.
-		//executeQuery() going to database and get the data than by ResultSet object , we store in r1 
+		String q1 = "SELECT * FROM my_companies";//my query.in java the queries are String
+		ResultSet r1 = st.executeQuery(q1);//sending(execute) my q1 to database than will get the Resultset(obj), it will be unique.
+		//executeQuery() going to database and get the data than by ResultSet object , we store in resultset r1  obj
 		
 		
 		//6.Step: Do some actions according to the result

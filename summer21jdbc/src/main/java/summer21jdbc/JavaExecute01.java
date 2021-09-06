@@ -1,6 +1,6 @@
  package summer21jdbc;
 
-import java.sql.*;
+import java.sql.*;//importing SQL package
 public class JavaExecute01 {
 	/*
  	1)In DDL(Data Definition Language: CREATE TABLE, DROP TABLE, ALTER TABLE), we use execute()
@@ -9,15 +9,31 @@ public class JavaExecute01 {
  	  When you use execute() in DQL(for Read), it returns ResultSet
  	  When you use execute() in DML(for Create,Update,Delete), it returns true
  	
- */
+ 
+	 For SELECT command(reading);
+	 	#String q1="my query"; 
+	 	#ResultSet 
+	 	#while(.next())
+	 	#.executeQuery()
+	 	#.close()
+	 	
+	 For INSERT,UPDATE,DELETE
+	 #String q1="my query"; 
+	 #int
+	 #.executeUpdate()
+	 #.close()==>only int can not invoke but others can.
+	 
+	 For CREATE,
+	 	
+	 */
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "taner1", "1987");
-		Statement st=con.createStatement();
+		Class.forName("oracle.jdbc.driver.OracleDriver");//registering to our oracle driver
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "taner1", "1987");//creating connection to the our data base
+		Statement st=con.createStatement();//creating statement
 		
 		//0.Example: DROP students table
-		String q0 = "DROP TABLE students";
+		String q0 = "DROP TABLE students";// creating sql queries....
 		boolean isItDropped = st.execute(q0);
 		System.out.println("Was the table dropped? " + !isItDropped);//true
 		

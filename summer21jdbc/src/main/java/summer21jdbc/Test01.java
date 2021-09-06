@@ -1,41 +1,44 @@
 package summer21jdbc;
-import java.sql.*;//s1
+import java.sql.*;
 public class Test01 {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	
+		Class.forName("oracle.jdbc.driver.OracleDriver");	
+		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "taner1", "1987");
+		Statement st = con.createStatement();
 		
-		Class.forName("oracle.jdbc.driver.OracleDriver");//s2
+		//1.Example: Insert 104 and Huavei into my_companies table
 		
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "taner1", "1987");//s3
+//		//String q1="INSERT INTO my_companies VALUES(104,'AAAA')";
+//		String q1="INSERT INTO my_companies (company_id,company_name) VALUES(201,'BBBB')";
+//		//INSERT INTO my_companies (company_id,company_name) VALUES(201,"BBBB");
+//		int r1=st.executeUpdate(q1);
+//		System.out.println(r1+"row/s inserted.");
+//			
 		
-		Statement st = con.createStatement();//s4
-		
-		
-		String q1="SELECT * FROM my_companies";
-		ResultSet r1=st.executeQuery(q1);
-		while(r1.next()) {
-		
-			
-			
-			
-		System.out.println(r1.getInt(1)+" - "+ r1.getString(2));
-		}		
-		//3.Example: Select third company_id and company_name after sorting in descending order
-		
-		
-		String q3 = "SELECT company_id, company_name "
-				  + "FROM my_companies "
-				  + "ORDER BY company_id DESC "
-				  + "OFFSET 2 ROW "
-				  + "FETCH NEXT 1 ROW ONLY";
-		
-		ResultSet r3 = st.executeQuery(q3);
-		
-		while(r3.next()) {
-			
-			System.out.println(r3.getInt("company_id") + " --> " + r3.getString("company_name"));
-										//column name or column index		//column name or column index
-		
+//	String q2="SELECT * FROM my_companies";
+//	ResultSet r2=st.executeQuery(q2);
+//	
+//	while(r2.next()) {
+//		System.out.println(r2.getInt(1)+"==>"+r2.getString(2));
+//	}
+	//2.Example: Change HUAVEI to SAMSUNG
+	
+	String q3="UPDATE my_companies SET company_name='BBB' WHERE company_name='GOOGLE'";
+	
+	int r3=st.executeUpdate(q3);
+	System.out.println(r3+"updated");
+	
+	
+	
+	
+	con.close();
+	st.close();
+	//r2.close();
+	
+	
 		}
 }
-}
+
+		
