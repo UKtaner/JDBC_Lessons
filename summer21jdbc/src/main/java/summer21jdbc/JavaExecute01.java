@@ -14,16 +14,21 @@ public class JavaExecute01 {
 	 	#String q1="my query"; 
 	 	#ResultSet 
 	 	#while(.next())
-	 	#.executeQuery()
+	 	#st.executeQuery()
 	 	#.close()
 	 	
 	 For INSERT,UPDATE,DELETE
 	 #String q1="my query"; 
 	 #int
-	 #.executeUpdate()
+	 #st.executeUpdate(q1)
 	 #.close()==>only int can not invoke but others can.
 	 
-	 For CREATE,
+	 For CREATE,DROP,ALTER()
+	 #String q1="";
+	 #boolean
+	 #st.execute(q1)
+	 
+	 
 	 	
 	 */
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {

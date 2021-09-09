@@ -10,12 +10,13 @@ public class JdbcCallableStatement01 {
 		
 		Statement st = con.createStatement();
     	
-    	//How to call a Function from DB vby using JDBC 
+    	//How to call a Function from DB by using JDBC 
     	
     	//Create a function which uses 2 integer parameters and returns the sum of the integers
 //    	String q1 = "CREATE OR REPLACE FUNCTION additionf(a NUMBER, b NUMBER) "
 //    			  + "RETURN NUMBER IS "
-//    			  + "BEGIN  return a+b; "
+//    			  + "BEGIN  
+//							return a+b; "
 //    			  + "END;";
 //    	boolean isFuncCreated = st.execute(q1);
 //    	System.out.println("Was the addition function created? " + !isFuncCreated);

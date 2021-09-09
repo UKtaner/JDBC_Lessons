@@ -7,37 +7,24 @@ public class Test01 {
 		Class.forName("oracle.jdbc.driver.OracleDriver");	
 		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "taner1", "1987");
 		Statement st = con.createStatement();
+
+		String q1 ="CREATE OR REPLACE FUNCTION addF(x NUMBER, Y NUMBER, z NUMBER)"
+				+ "RETURN NUMBER IS"
+				+ "BEGIN "
+				+ "RETURN x+y+z"
+				+ "END;";
 		
-		//1.Example: Insert 104 and Huavei into my_companies table
+		boolean isFuncCreated = st.execute(q1);
+		System.out.println("Was the addition function created? " + !isFuncCreated);
+		CallableStatement cst = con.prepareCall("{? = call additionf(?, ?, ?)}");
 		
-//		//String q1="INSERT INTO my_companies VALUES(104,'AAAA')";
-//		String q1="INSERT INTO my_companies (company_id,company_name) VALUES(201,'BBBB')";
-//		//INSERT INTO my_companies (company_id,company_name) VALUES(201,"BBBB");
-//		int r1=st.executeUpdate(q1);
-//		System.out.println(r1+"row/s inserted.");
-//			
 		
-//	String q2="SELECT * FROM my_companies";
-//	ResultSet r2=st.executeQuery(q2);
-//	
-//	while(r2.next()) {
-//		System.out.println(r2.getInt(1)+"==>"+r2.getString(2));
-//	}
-	//2.Example: Change HUAVEI to SAMSUNG
-	
-	String q3="UPDATE my_companies SET company_name='BBB' WHERE company_name='GOOGLE'";
-	
-	int r3=st.executeUpdate(q3);
-	System.out.println(r3+"updated");
-	
-	
-	
-	
-	con.close();
-	st.close();
-	//r2.close();
-	
-	
+		
+		con.close();
+		st.close();
+		
+		
+		
 		}
 }
 
