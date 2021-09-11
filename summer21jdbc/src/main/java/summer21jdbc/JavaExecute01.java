@@ -10,24 +10,24 @@ public class JavaExecute01 {
  	  When you use execute() in DML(for Create,Update,Delete), it returns true
  	
  
-	 For SELECT command(reading);
+	 For SELECT command(reading)==>DQL
 	 	#String q1="my query"; 
 	 	#ResultSet 
 	 	#while(.next())
 	 	#st.executeQuery()
 	 	#.close()
 	 	
-	 For INSERT,UPDATE,DELETE
-	 #String q1="my query"; 
-	 #int
-	 #st.executeUpdate(q1)
-	 #.close()==>only int can not invoke but others can.
-	 
-	 For CREATE,DROP,ALTER()
-	 #String q1="";
-	 #boolean
-	 #st.execute(q1)
-	 
+		 For INSERT,UPDATE,DELETE==>DML
+		 #String q1="my query"; 
+		 #int
+		 #st.executeUpdate(q1)
+		 #.close()==>only int can not invoke but others can.
+		 
+		 For CREATE,DROP,ALTER,TRUNCATE ==>DDL
+		 #String q1="";
+		 #boolean
+		 #st.execute(q1)
+		 
 	 
 	 	
 	 */

@@ -32,6 +32,7 @@ public class JdbcCallableStatement01 {
 //    	System.out.println("The result: " + cst.getInt(1));//12
     	
     	//Create a function which returns the name of a student from students table when you enter student id 
+		
 //    	String q2 = "CREATE OR REPLACE FUNCTION getNamef(id NUMBER) RETURN VARCHAR2 IS "
 //	    			+ "s_name students.std_name%TYPE; "//==>s_name VARCHAR2 can also work but hard coding
 //s_name==> variable, students.std_name%TYPE==> data type		
