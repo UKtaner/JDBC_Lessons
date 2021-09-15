@@ -1,6 +1,6 @@
 package summer21jdbc;
 import java.sql.*;
-public class JdbcExecuteQueryDT02 {
+public class JdbcExecuteQuery02 {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		Class.forName("oracle.jdbc.driver.OracleDriver");

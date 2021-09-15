@@ -12,7 +12,7 @@ public class JdbcCallableStatement01 {
     	
     	//How to call a Function from DB by using JDBC 
     	
-    	//Create a function which uses 2 integer parameters and returns the sum of the integers
+    	
 //    	String q1 = "CREATE OR REPLACE FUNCTION additionf(a NUMBER, b NUMBER) "
 //    			  + "RETURN NUMBER IS "
 //    			  + "BEGIN  
@@ -22,7 +22,7 @@ public class JdbcCallableStatement01 {
 //    	System.out.println("Was the addition function created? " + !isFuncCreated);
 //    	
 //    	CallableStatement cst = con.prepareCall("{? = call additionf(?, ?)}");
-//    	
+//    								prepareCall() is to call IN&OUTPUT variables
 //    	cst.registerOutParameter(1, Types.INTEGER);
 //    	cst.setInt(2, 15);
 //    	cst.setInt(3, 17);
@@ -33,8 +33,10 @@ public class JdbcCallableStatement01 {
     	
     	//Create a function which returns the name of a student from students table when you enter student id 
 		
-//    	String q2 = "CREATE OR REPLACE FUNCTION getNamef(id NUMBER) RETURN VARCHAR2 IS "
-//	    			+ "s_name students.std_name%TYPE; "//==>s_name VARCHAR2 can also work but hard coding
+//    	String q2 = "CREATE OR REPLACE FUNCTION getNamef(id NUMBER) 
+//					RETURN VARCHAR2 IS "
+//	    			+ "s_name students.std_name%TYPE; "
+//==>s_name VARCHAR2 can also work but hard coding
 //s_name==> variable, students.std_name%TYPE==> data type		
 //	    			+ "s_id students.std_id%TYPE; "
 //	    			+ "BEGIN "
